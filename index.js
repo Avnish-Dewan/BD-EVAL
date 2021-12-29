@@ -3,7 +3,7 @@ const app = express();
 const fs = require('fs')
 const path = require("path");
 const port = 3000
-const data = require('./data.json')
+let data = require('./data.json')
 
 
 app.use(
@@ -26,7 +26,8 @@ app.post('/',(req,res)=>{
         if (err) throw err;
         data = JSON.parse(d);
     });
-    res.send('Data Added')
+    res.setHeader('Content-type', 'text/html')
+    res.send('Data Added &nbsp;&nbsp; <a href =\'/\'>Go Back</a>')
 });
 
 
