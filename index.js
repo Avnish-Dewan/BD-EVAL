@@ -32,7 +32,8 @@ app.post('/',(req,res)=>{
 
 
 app.get('/data',(req,res)=>{
-    res.send(data);
+    res.setHeader('Content-type', 'text/html')
+    res.send(`${JSON.stringify(data)}&nbsp;&nbsp;<a href ='/'>Go Back</a>`);
 });
 
 app.listen(port, () => {
